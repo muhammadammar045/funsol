@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funsol Api Testing</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/fav.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/00598383e2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container" id="alert-container"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-light p-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <svg
+            width="35"
+            height="44"
+            viewBox="0 0 44 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="44" height="44" rx="10" fill="#0A0B18" />
+            <path
+              d="M28.8968 15.6093C28.8385 15.672 28.7678 15.7218 28.6891 15.7556C28.6105 15.7893 28.5256 15.8064 28.44 15.8056H20.493V22.7315H25.8237C25.9956 22.7362 26.159 22.8065 26.2806 22.9279C26.4021 23.0494 26.4724 23.2127 26.4772 23.3843V26.8818C26.4779 26.9673 26.4609 27.0521 26.427 27.1307C26.3932 27.2093 26.3433 27.2799 26.2806 27.3382C26.2219 27.4003 26.151 27.4498 26.0725 27.4836C25.9939 27.5173 25.9093 27.5347 25.8237 27.5346H20.493V33.1549C20.4958 33.2454 20.4797 33.3355 20.4459 33.4196C20.4121 33.5036 20.3612 33.5797 20.2964 33.6431C20.2377 33.7053 20.1669 33.7547 20.0883 33.7885C20.0098 33.8223 19.9251 33.8396 19.8396 33.8395H15.6536C15.5681 33.8396 15.4834 33.8223 15.4048 33.7885C15.3263 33.7547 15.2554 33.7053 15.1967 33.6431C15.1325 33.5793 15.0819 33.5032 15.0481 33.4192C15.0144 33.3352 14.998 33.2453 15.0002 33.1549V11.6607C14.9994 11.574 15.0165 11.4881 15.0503 11.4082C15.0841 11.3283 15.1339 11.2562 15.1967 11.1964C15.2554 11.1342 15.3263 11.0847 15.4048 11.051C15.4834 11.0172 15.5681 10.9999 15.6536 11H28.44C28.6122 11.0047 28.7761 11.0754 28.8977 11.1973C29.0193 11.3193 29.0893 11.4833 29.0934 11.6555V15.1529C29.0941 15.2384 29.0771 15.3232 29.0432 15.4018C29.0094 15.4804 28.9595 15.551 28.8968 15.6093Z"
+              fill="#FCD606"
+            />
+          </svg>
+          <span class="mt-4">Funsol APIs</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <form class="d-flex mt-4 mt-lg-0 ms-auto" role="search">
+            <span class="relative search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+            <input
+              id="searchInput"
+              class="form-control px-5 me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <a class="nav-link text-dark h5 d-lg-none" href="" target="blank">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <mask
+                  id="mask0_1_5"
+                  style="mask-type: alpha"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="30"
+                  height="30"
+                >
+                  <rect width="30" height="30" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_1_5)">
+                  <path
+                    d="M6.63466 25.625C6.00324 25.625 5.46878 25.4062 5.03128 24.9687C4.59378 24.5312 4.37503 23.9968 4.37503 23.3653V6.63466C4.37503 6.00324 4.59378 5.46878 5.03128 5.03128C5.46878 4.59378 6.00324 4.37503 6.63466 4.37503H14.0745C14.3406 4.37503 14.5633 4.46478 14.7428 4.64428C14.9223 4.82376 15.012 5.04651 15.012 5.31253C15.012 5.57855 14.9223 5.8013 14.7428 5.98078C14.5633 6.16026 14.3406 6.25 14.0745 6.25H6.63466C6.53849 6.25 6.45033 6.29006 6.37019 6.37019C6.29006 6.45033 6.25 6.53849 6.25 6.63466V23.3653C6.25 23.4615 6.29006 23.5497 6.37019 23.6298C6.45033 23.7099 6.53849 23.75 6.63466 23.75H14.0745C14.3406 23.75 14.5633 23.8397 14.7428 24.0192C14.9223 24.1987 15.012 24.4214 15.012 24.6875C15.012 24.9535 14.9223 25.1762 14.7428 25.3557C14.5633 25.5352 14.3406 25.625 14.0745 25.625H6.63466ZM22.0217 15.9375H12.3077C12.0417 15.9375 11.8189 15.8477 11.6394 15.6683C11.4599 15.4888 11.3702 15.266 11.3702 15C11.3702 14.734 11.4599 14.5112 11.6394 14.3318C11.8189 14.1523 12.0417 14.0625 12.3077 14.0625H22.0217L19.6178 11.6587C19.4447 11.4856 19.3562 11.2745 19.3522 11.0253C19.3482 10.7761 19.4367 10.5545 19.6178 10.3606C19.7989 10.1667 20.0185 10.0666 20.2765 10.0602C20.5345 10.0537 20.7604 10.1475 20.9543 10.3414L24.8221 14.2092C25.048 14.4351 25.161 14.6987 25.161 15C25.161 15.3013 25.048 15.5649 24.8221 15.7908L20.9543 19.6586C20.7684 19.8445 20.5477 19.9362 20.2921 19.9338C20.0365 19.9314 19.8117 19.8333 19.6178 19.6394C19.4367 19.4455 19.3494 19.2227 19.3558 18.9711C19.3622 18.7195 19.456 18.5032 19.6371 18.3221L22.0217 15.9375Z"
+                    fill="#D53A3A"
+                  />
+                </g>
+              </svg>
+            </a>
+          </form>
+          <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+            <li class="nav-item mx-2">
+              <a class="nav-link text-dark h5" href="" target="blank">
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask
+                    id="mask0_1_5"
+                    style="mask-type: alpha"
+                    maskUnits="userSpaceOnUse"
+                    x="0"
+                    y="0"
+                    width="30"
+                    height="30"
+                  >
+                    <rect width="30" height="30" fill="#D9D9D9" />
+                  </mask>
+                  <g mask="url(#mask0_1_5)">
+                    <path
+                      d="M6.63466 25.625C6.00324 25.625 5.46878 25.4062 5.03128 24.9687C4.59378 24.5312 4.37503 23.9968 4.37503 23.3653V6.63466C4.37503 6.00324 4.59378 5.46878 5.03128 5.03128C5.46878 4.59378 6.00324 4.37503 6.63466 4.37503H14.0745C14.3406 4.37503 14.5633 4.46478 14.7428 4.64428C14.9223 4.82376 15.012 5.04651 15.012 5.31253C15.012 5.57855 14.9223 5.8013 14.7428 5.98078C14.5633 6.16026 14.3406 6.25 14.0745 6.25H6.63466C6.53849 6.25 6.45033 6.29006 6.37019 6.37019C6.29006 6.45033 6.25 6.53849 6.25 6.63466V23.3653C6.25 23.4615 6.29006 23.5497 6.37019 23.6298C6.45033 23.7099 6.53849 23.75 6.63466 23.75H14.0745C14.3406 23.75 14.5633 23.8397 14.7428 24.0192C14.9223 24.1987 15.012 24.4214 15.012 24.6875C15.012 24.9535 14.9223 25.1762 14.7428 25.3557C14.5633 25.5352 14.3406 25.625 14.0745 25.625H6.63466ZM22.0217 15.9375H12.3077C12.0417 15.9375 11.8189 15.8477 11.6394 15.6683C11.4599 15.4888 11.3702 15.266 11.3702 15C11.3702 14.734 11.4599 14.5112 11.6394 14.3318C11.8189 14.1523 12.0417 14.0625 12.3077 14.0625H22.0217L19.6178 11.6587C19.4447 11.4856 19.3562 11.2745 19.3522 11.0253C19.3482 10.7761 19.4367 10.5545 19.6178 10.3606C19.7989 10.1667 20.0185 10.0666 20.2765 10.0602C20.5345 10.0537 20.7604 10.1475 20.9543 10.3414L24.8221 14.2092C25.048 14.4351 25.161 14.6987 25.161 15C25.161 15.3013 25.048 15.5649 24.8221 15.7908L20.9543 19.6586C20.7684 19.8445 20.5477 19.9362 20.2921 19.9338C20.0365 19.9314 19.8117 19.8333 19.6178 19.6394C19.4367 19.4455 19.3494 19.2227 19.3558 18.9711C19.3622 18.7195 19.456 18.5032 19.6371 18.3221L22.0217 15.9375Z"
+                      fill="#D53A3A"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <!----------------------------------------- MODAL----------------------------------------------->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Create New
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form id="user-form" enctype="multipart/form-data">
+              <div class="modal-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="firstName" class="form-label"
+                          >First Name</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="firstName"
+                          name="firstName"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="city"
+                          name="city"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="gender"
+                          name="gender"
+                          ,
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="age" class="form-label">Age</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          id="age"
+                          name="age"
+                          min="1"
+                          max="120"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="birthDate" class="form-label"
+                          >BirthDay</label
+                        >
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="birthDate"
+                          name="birthDate"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input
+                          type="file"
+                          class="form-control"
+                          id="image"
+                          name="image"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-outline-secondary px-4"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                  <button type="submit" class="btn btn-primary px-4">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!----------------------------------------- Main----------------------------------------------->
+
+      <div class="container">
+        <div class="row g-4 p-4">
+          <div class="col-3 col-sm-12 col-md-4 events">
+            <div class="d-flex flex-column box rounded-4">
+              <div class="mb-2 p-3 p-xl-4">
+                <h5 class="cognise">Cognise : AI Art Generator</h5>
+              </div>
+              <div id="events"></div>
+            </div>
+          </div>
+          <div class="col-9 col-sm-12 col-md-8 display-events">
+            <div class="box rounded-4 p-3 p-xl-4">
+              <div
+                class="d-flex justify-content-between mt-4 mt-md-0 mb-4 upper-portion"
+              >
+                <p class="caption">Event Name</p>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Create New
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table borderless table-hover">
+                  <thead>
+                    <tr class="table-head py-3">
+                      <th scope="col">Name</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Birth Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-body">
+                    <!-- <tr class="py-3">
+                      <th scope="row">USA</th>
+                      <td>OK</td>
+                      <td>Chrome-Window</td>
+                      <td>256.138.27.98</td>
+                      <td>2 min ago</td>
+                    </tr> -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

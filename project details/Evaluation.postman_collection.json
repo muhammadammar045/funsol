@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "7e6bad85-6b34-4eb5-9017-96aa9f2f7c33",
+    "name": "Evaluation",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19143014"
+  },
+  "item": [
+    {
+      "name": "Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "Tester 1",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "description",
+              "value": "Heyyyyyyy !!!!!!!",
+              "type": "text"
+            },
+            {
+              "key": "files",
+              "type": "file",
+              "src": [
+                "/home/shehryar/Music/alarm files/sound_3.mp3",
+                "/home/shehryar/Music/alarm files/sound_4.wav"
+              ]
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://eval.funsol.cloud/api/create-testing/",
+          "protocol": "http",
+          "host": ["eval", "funsol", "cloud"],
+          "path": ["api", "create-testing", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "{{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://eval.funsol.cloud/testings/",
+          "protocol": "http",
+          "host": ["eval", "funsol", "cloud"],
+          "path": ["testings", ""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": "token 41e9f29caa79c767df488b33ee50dfcedec623ec ",
+      "type": "string"
+    }
+  ]
+}

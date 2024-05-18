@@ -1,0 +1,85 @@
+.logo-text {
+  font-weight: 600;
+}
+.search-box {
+  width: 300px;
+}
+
+.search-icon {
+  position: relative;
+  top: 8px;
+  left: 30px;
+}
+.box {
+  border: 1px solid #0075ff1a;
+}
+.table-head {
+  background-color: #0075ff1a !important;
+}
+.caption {
+  font-size: 20px;
+  font-weight: 600;
+}
+.links:hover {
+  background: #0075ff1a;
+  border-left: 4px solid #0075ff;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+@media screen and (max-width: 450px) {
+  .upper-portion {
+    flex-direction: column;
+  }
+  .caption {
+    text-align: center;
+    font-size: 16px;
+  }
+  .cognise {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .search-container {
+    margin-top: 25px;
+    display: inline-block;
+  }
+  .logout-box {
+    display: inline-block;
+  }
+  .logout {
+    margin-top: 5px;
+  }
+  .search-box {
+    width: 200px;
+  }
+  .events {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .display-events {
+    display: block;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .caption {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .cognise {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 767px) {
+  .cognise {
+    font-size: 16px;
+  }
+  .caption {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
